@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Navidad</title>
+    <style>
+      @font-face {
+        font-family: "Minecraft";
+        src: url("./Minecraft.ttf") format("truetype");
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100dvh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        overflow-x: hidden; 
+        font-family: "Minecraft", sans-serif;
+        background-image: url("fondo.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      .p-container {
+        z-index: 1;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+      }
+      
+      
+      .p-container h1 { 
+        
+        font-size: 8vw; 
+        text-wrap: pretty;
+        text-align: center;
+        color: white;
+        text-shadow: 0px 0px 0 black, 1px 0px 0 black, -3px 2px 0 black,
+          0px 0px 0 black;
+        font-weight: bold;
+        
+        /* Posicionamiento: Arriba y Centrado */
+        position: absolute;
+        top: 2vh; /* Se usa vh para la distancia desde arriba */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%; /* Ancho con margen para que no toque los bordes */
+      }
+
+      
+      @media (min-width: 768px) {
+        .p-container h1 {
+          
+          font-size: 3rem; 
+          
+          
+          top: 5vh; 
+        }
+      }
+
+      
+      .telon {
+        width: 100%;
+        height: 100dvh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        z-index: 2;
+        max-width: 100%; 
+      }
+      .left,
+      .right {
+        height: 100dvh;
+        width: 50%;
+        transition: transform 0.8s ease-in-out;
+        background-image: url("./teatro.png");
+        background-size: 200% 100%; 
+      }
+      .left {
+        position: absolute;
+        left: 0;
+        background-position: left center;
+        transform-origin: left center;
+      }
+      .right {
+        position: absolute;
+        right: 0;
+        background-position: right center;
+        transform-origin: right center;
+      }
+      .abrir-left {
+        transform: translateX(-100%);
+      }
+      .abrir-right {
+        transform: translateX(100%);
+      }
+      .cerrar {
+        transform: translateX(0);
+      }
+    </style>
+    <script type="module">
+      document.addEventListener("click", () => {
+        const left = document.querySelector(".left");
+        const right = document.querySelector(".right");
+
+        left.classList.toggle("abrir-left");
+        left.classList.toggle("cerrar");
+
+        right.classList.toggle("abrir-right");
+        right.classList.toggle("cerrar");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="p-container">
+        <h1>Feliz Navidad Brenda 🎄</h1> 
+    </div>
+    
+    <div class="telon">
+      <div class="left cerrar"></div>
+      <div class="right cerrar"></div>
+    </div>
+  </body>
+</html>
